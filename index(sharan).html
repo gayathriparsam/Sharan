@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Registration Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwoxsen.edu.in%2Fcontact-us%2F&psig=AOvVaw3_PLLNlZFAJWE2MfWqIkHy&ust=1706099413471000&source=images&cd=vfe&ved=0CBMQjRxqFwoTCKioxd3B84MDFQAAAAAdAAAAABAE); /* Set the background image */
+            background-size: cover; /* Ensure the background image covers the whole viewport */
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: rgb(22, 11, 22);
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px; /* Add margin-bottom for spacing */
+        }
+
+        button:hover {
+            background-color: rgb(168, 205, 218);
+        }
+
+        .registration-container {
+            margin-top: 20px;
+        }
+
+        .registration-container label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        .secret-key {
+            margin-top: 20px;
+            font-weight: bold;
+            color:rgb(255, 0, 8);
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="button" onclick="login()">Login</button>
+
+        <!-- Registration button and link -->
+        <a href="registration.html">
+            <button type="button" onclick="redirectToRegistration()">Register</button>
+        </a>
+        <a href="cv.html">
+            <button type="button" onclick="redirectTocv()">cv</button>
+        </a>
+    </form>
+</div>
+</body>
+</html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <style>
+        /* Your existing CSS styles remain unchanged */
+    </style>
+    <script>
+        function validateForm() {
+            var fullName = document.getElementById("full_name").value;
+            var age = document.getElementById("age").value;
+            var gender = document.getElementById("gender").value;
+            var address = document.getElementById("address").value;
+            var phone = document.getElementById("phone").value;
+            var email = document.getElementById("email").value;
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirm_password").value;
+            var dateOfBirth = document.getElementById("date_of_birth").value;
+            var course = document.getElementById("course").value;
+
+            // Perform your validation checks here
+            if (fullName === '' || age === '' || gender === '' || address === '' ||
+                phone === '' || email === '' || username === '' || password === '' ||
+                confirmPassword === '' || dateOfBirth === '' || course === '') {
+                alert("Please fill in all fields");
+                return false;
+            }
+
+            // You can add more validation checks as needed
+
+            if (password !== confirmPassword) {
+                alert("Password and Confirm Password do not match");
+                return false;
+            }
+
+            // Additional validation logic goes here
+
+            return true; // Form is valid
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="registration-container">
+        <h2>Registration</h2>
+        <form action="your_backend_registration_handler.php" method="post" onsubmit="return validateForm()">
+            <!-- Your existing form fields -->
+
+            <div class="form-group">
+                <label for="date_of_birth">Date of Birth:</label>
+                <input type="date" id="date_of_birth" name="date_of_birth" required>
+            </div>
+            <div class="form-group">
+                <label for="course">Course:</label>
+                <input type="text" id="course" name="course" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Register">
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
+
